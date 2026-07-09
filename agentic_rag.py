@@ -43,7 +43,7 @@ llm = ChatGroq(groq_api_key=GROQ_API_KEY, model_name="mixtral-8x7b-32768", tempe
 @st.cache_resource
 def initialize_rag_system():
     # ---- APNI PDF FILE KA NAAM YAHAN BADLEIN ----
-    pdf_filename = "Copy of Constitutional History Pakistan.pdf" 
+    pdf_filename = "Copy of Constitutional History of Pakistan.pdf" 
     
     if not os.path.exists(pdf_filename):
         st.error(f"Error: {pdf_filename} file folder me nahi mili! Kripya check karein.")

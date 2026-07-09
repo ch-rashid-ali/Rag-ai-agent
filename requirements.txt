@@ -3,6 +3,7 @@ langchain==0.1.20
 langchain-community==0.0.38
 transformers
 torch
+torchvision
 python-dotenv
 pypdf
 sentence-transformers
