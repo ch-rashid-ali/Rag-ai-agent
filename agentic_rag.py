@@ -82,7 +82,10 @@ class PineconeRetriever:
                 docs.append(Document(page_content=match['metadata']['text'], metadata={"page": match['metadata'].get("page", 0)}))
         return docs
 
-retriever = PineconeRetriever(index, embedding_model)
+from langchain_pinecone import PineconeVectorStore
+
+vector_store = PineconeVectorStore(index=index, embedding=embedding_model)
+retriever = vector_store.as_retriever(search_kwargs={"k": 3})
 
 # 5. Strict Prompt Engineering (Sirf PDF se jawab dene ke liye)
 system_prompt = (
