@@ -57,7 +57,7 @@ def initialize_rag_system():
     
     # Push Embeddings to Pinecone (Upsert)
     for i, chunk in enumerate(chunks):
-        embedding = embedding_model.encode(chunk.page_content).tolist()
+        embedding = embedding_model.embed_query(chunk.page_content)
         metadata = {"text": chunk.page_content, "page": chunk.metadata.get("page", 0)}
         index.upsert(vectors=[(f"vec_{i}", embedding, metadata)])
         
@@ -74,7 +74,7 @@ class PineconeRetriever:
         self.embedding_model = embedding_model
         
     def invoke(self, query):
-        query_vector = self.embedding_model.encode(query).tolist()
+        query_vector = self.embedding_model.embed_query(query)
         results = self.index.query(vector=query_vector, top_k=3, include_metadata=True)
         docs = []
         for match in results['matches']:
