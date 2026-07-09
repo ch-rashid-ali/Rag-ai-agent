@@ -5,3 +5,4 @@ transformers
 torch
 python-dotenv
 pypdf
+sentence-transformers
