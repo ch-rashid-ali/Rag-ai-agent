@@ -89,9 +89,10 @@ retriever = vector_store.as_retriever(search_kwargs={"k": 3})
 
 # 5. Strict Prompt Engineering (Sirf PDF se jawab dene ke liye)
 system_prompt = (
-    "Aap ek expert AI assistant hain. Aapko sirf niche diye gaye context (PDF data) ka use karke user ke sawaal ka jawab dena hai.\n"
-    "Agar jawab context me MAUJOOD NAHI HAI, toh saaf bol dein: 'Mujhe iska jawab di gayi PDF me nahi mila.' Apne se koi jawab mat banayein.\n\n"
-    "Context:\n{context}"
+    "You are an expert AI assistant. You must answer the user's question strictly using only the provided context (PDF data).\\n"
+    "If the answer is NOT FOUND in the context, reply exactly with: 'I could not find the answer in the provided PDF.' Do not make up any answers or use outside knowledge.\\n"
+    "Your entire response must be written strictly in proper English.\\n\\n"
+    "Context:\\n{context}"
 )
 
 prompt = ChatPromptTemplate.from_messages([
