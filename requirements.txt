@@ -7,3 +7,4 @@ python-dotenv
 pypdf
 sentence-transformers
 pinecone
+langchain-groq
