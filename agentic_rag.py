@@ -37,7 +37,7 @@ if index_name not in pc.list_indexes().names():
 
 index = pc.Index(index_name)
 embedding_model = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
-llm = ChatGroq(groq_api_key=GROQ_API_KEY, model_name="mixtral-8x7b-32768", temperature=0.2)
+llm = ChatGroq(model="llama-3.3-70b-versatile", groq_api_key=GROQ_API_KEY)
 
 # 3. PDF Loading and Processing Function (Local Folder Se)
 @st.cache_resource
