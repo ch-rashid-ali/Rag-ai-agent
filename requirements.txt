@@ -10,3 +10,5 @@ sentence-transformers
 pinecone
 langchain-groq
 langchain-pinecone
+langchain-huggingface
+sentence-transformers

@@ -1,7 +1,7 @@
 import os
 import streamlit as st
 from dotenv import load_dotenv
-from sentence_transformers import SentenceTransformer
+from langchain_huggingface import HuggingFaceEmbeddings
 from pinecone import Pinecone, ServerlessSpec
 from langchain_groq import ChatGroq
 from langchain.chains.retrieval import create_retrieval_chain
@@ -36,7 +36,7 @@ if index_name not in pc.list_indexes().names():
     )
 
 index = pc.Index(index_name)
-embedding_model = SentenceTransformer('all-MiniLM-L6-v2')
+embedding_model = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
 llm = ChatGroq(groq_api_key=GROQ_API_KEY, model_name="mixtral-8x7b-32768", temperature=0.2)
 
 # 3. PDF Loading and Processing Function (Local Folder Se)
