@@ -103,8 +103,8 @@ question_answer_chain = create_stuff_documents_chain(llm, prompt)
 rag_chain = create_retrieval_chain(retriever, question_answer_chain)
 
 # 6. Streamlit Chat Interface UI
-st.title("📚 Agentic RAG - PDF Chatbot")
-st.write()
+st.title("📚 Agentic RAG ")
+st.write("Ye agent sirf aapki di gayi PDF ke mutabiq jawab dega.")
 
 # Initialize chat history
 if "messages" not in st.session_state:
@@ -116,7 +116,7 @@ for message in st.session_state.messages:
         st.markdown(message["content"])
 
 # Accept user input
-if user_query := st.chat_input("write your question..."):
+if user_query := st.chat_input("PDF ke baare me kuch bhi puchein..."):
     with st.chat_message("user"):
         st.markdown(user_query)
     st.session_state.messages.append({"role": "user", "content": user_query})
