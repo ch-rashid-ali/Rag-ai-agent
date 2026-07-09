@@ -6,3 +6,4 @@ torch
 python-dotenv
 pypdf
 sentence-transformers
+pinecone
