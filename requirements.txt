@@ -1,6 +1,6 @@
 streamlit
-langchain>=0.2.0
-langchain-community
+langchain==0.1.20
+langchain-community==0.0.38
 transformers
 torch
 python-dotenv
