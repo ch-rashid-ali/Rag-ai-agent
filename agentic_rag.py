@@ -105,7 +105,7 @@ rag_chain = create_retrieval_chain(retriever, question_answer_chain)
 
 # 6. Streamlit Chat Interface UI
 st.title("📚 Agentic RAG ")
-st.write("Ye agent sirf aapki di gayi PDF ke mutabiq jawab dega.")
+st.write("Feel free to ask questions about the provided pdf.")
 
 # Initialize chat history
 if "messages" not in st.session_state:
